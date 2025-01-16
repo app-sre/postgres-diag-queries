@@ -1,7 +1,5 @@
 FROM registry.access.redhat.com/ubi9/ubi-minimal:9.5-1736404155 as aws-cli-builder
 
-COPY LICENSE /licenses/LICENSE
-
 RUN microdnf -y update && \
     microdnf -y install unzip gnupg2
 
@@ -21,10 +19,14 @@ RUN unzip awscliv2.zip && \
 
 FROM registry.access.redhat.com/ubi9/ubi-minimal:9.5-1736404155
 
+COPY LICENSE /licenses/LICENSE
+
 # postgres13 for the moment, not ideal.
 RUN microdnf -y update && \
     microdnf -y install postgresql tar && \
     microdnf clean all
+
+USER 1001:1001
 
 COPY --from=aws-cli-builder /opt/awscli /opt/awscli
 ENV PATH="$PATH:/opt/awscli/bin"
