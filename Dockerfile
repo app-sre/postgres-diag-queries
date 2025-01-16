@@ -23,7 +23,7 @@ COPY LICENSE /licenses/LICENSE
 
 # postgres13 for the moment, not ideal.
 RUN microdnf -y update && \
-    microdnf -y install postgresql tar && \
+    microdnf -y install postgresql tar gzip && \
     microdnf clean all
 
 USER 1001:1001
