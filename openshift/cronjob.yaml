@@ -108,7 +108,7 @@ parameters:
 - name: NAME
   value: "postgres-diag-queries"
 - name: IMAGE
-  value: "quay.io/redhat-services-prod/app-sre-tenant/postgres-diag-queries/postgres-diag-queries"
+  value: "quay.io/redhat-services-prod/app-sre-tenant/postgres-diag-queries-main/postgres-diag-queries-main"
 - name: IMAGE_TAG
   value: "latest"
 - name: IMAGE_PULL_POLICY
