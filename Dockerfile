@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi9/ubi-minimal:9.8-1794186349 as aws-cli-builder
+FROM registry.access.redhat.com/ubi9/ubi-minimal:9.9-1794467051 as aws-cli-builder
 
 RUN microdnf -y update && \
     microdnf -y install unzip gnupg2
@@ -17,7 +17,7 @@ RUN gpg --import aws-cli.public-pgp.key && \
 RUN unzip awscliv2.zip && \
     ./aws/install --install-dir /opt/awscli --bin-dir /opt/awscli/bin
 
-FROM registry.access.redhat.com/ubi9/ubi-minimal:9.8-1794186349
+FROM registry.access.redhat.com/ubi9/ubi-minimal:9.9-1794467051
 
 COPY LICENSE /licenses/LICENSE
 
